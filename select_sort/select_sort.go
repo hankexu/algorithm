@@ -18,9 +18,14 @@ func selectSort(arr []int) []int {
 	for len(arr)>0{
 		smallestIndex:=findSmallest(arr)
 		list = append(list, arr[smallestIndex])
-		arr = append(arr[:smallestIndex], arr[smallestIndex+1:]...)
+		arr = remove(arr, smallestIndex)
 	}
 	return list
+}
+
+func remove(arr []int, index int) []int {
+	arr = append(arr[:index], arr[index+1:]...)
+	return arr
 }
 
 
